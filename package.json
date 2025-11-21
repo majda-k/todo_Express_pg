@@ -1,0 +1,18 @@
+{
+  "name": "express_todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "deamon": "^1.0.0",
+    "express": "^5.1.0",
+    "postgres": "^3.4.7"
+  }
+}

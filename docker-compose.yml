@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: mon-postgres
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_USER: adminer
+      POSTGRES_PASSWORD: '1234'
+      POSTGRES_DB: mabase
+    ports:
+      - "5431:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+
+volumes:
+  postgres_data:
+    
+    
+
+
