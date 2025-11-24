@@ -1,6 +1,4 @@
-import { db } from '../db_Postgresql/db_Postresql.js' 
-
-import { getTasksRepository , createTaskRepository , updateTaskRepository , deleteTaskRepository  } from '../repository/repositoryTask.js' 
+import { getTasksService , createTaskService , updateTaskService , deleteTaskService  } from '../services/serviceTask.js' 
 
 
 
@@ -8,11 +6,11 @@ import { getTasksRepository , createTaskRepository , updateTaskRepository , dele
 export const getTask = async (req, res) => {
 
     try {
-        const tasks = await getTasksRepository();
+        const tasks = await getTasksService();
         res.status(200).json(tasks)
     }
     catch (err) {
-        res.status(500).json({ error: err.message })
+        res.status(500).json({ error: err.message})
 
     }
 
@@ -22,11 +20,11 @@ export const getTask = async (req, res) => {
 export const createTask = async(req, res) => {
     try {
         const {text , isDone , priority} = req.body
-        const task = await createTaskRepository(text, isDone, priority) 
+        const task = await createTaskService(text, isDone, priority) 
         res.status(200).json({message: "Added succesfuly" , task})
 
     }catch(err){
-        res.status(500).json({ error: err.message ,task})
+        res.status(500).json({ error: err.message })
     }
 
 }
@@ -37,7 +35,7 @@ export const updateTask = async(req, res) => {
         const id = req.params.id
         const {text , isDone , priority} = req.body
         
-          const updatedTask = await updateTaskRepository(id, text, isDone, priority)
+          const updatedTask = await updateTaskService(id, text, isDone, priority)
 
         res.status(200).json({message: "updated succesfuly" , updatedTask})
        
@@ -51,14 +49,14 @@ export const updateTask = async(req, res) => {
 
 
 export const deleteTask = async(req, res) => {
-    async(req, res) => {
+    
         try {
             const id = req.params.id
-            const deletedTask = await deleteTaskRepository(id)
+            const deletedTask = await deleteTaskService(id)
             res.status(200).json({message: "deleted succesfuly !!" , deletedTask})
     
         }catch(err){
             res.status(500).json({ error: err.message })
         }
-    }
+    
 }   
