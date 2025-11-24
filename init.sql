@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS tasks (
+    id SERIAL PRIMARY KEY,
+    text VARCHAR(255) NOT NULL,
+    "isDone" BOOLEAN DEFAULT false,
+    priority VARCHAR(50)
+);
