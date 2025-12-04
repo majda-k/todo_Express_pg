@@ -28,3 +28,4 @@ console.log(`listenning on port: ${port}`)
 });
 
 
+app.use("/tasks" , tasksRoute)
