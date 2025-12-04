@@ -18,6 +18,8 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use(tasksRoute)
 
+app.use("/tasks" , tasksRoute)
+
 
 //run migration command
 

@@ -5,7 +5,7 @@ import postgres from "postgres";
 
 
 // db connection
-export const db = postgres('postgresql://adminer:1234@localhost:5431/mabase')
+export const db = postgres('postgresql://adminer:1234@localhost:5431/mabase' , {prepare: false})
 
 
 try{
